@@ -38,7 +38,7 @@ fun Navigation(model: MainViewModel) {
         )
         Screens.BookingPage-> BookingPage(model)
         Screens.Confirm -> ConfirmPage(model)
-        Screens.MyBookingPage -> TODO()
+        Screens.MyBookingPage -> MyBookingPage(model)
     }
 }
 

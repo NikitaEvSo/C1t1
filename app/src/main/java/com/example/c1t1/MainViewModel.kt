@@ -44,7 +44,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             )
         )
     )
-    lateinit var BookedRooms : MutableList<Form>
+    var bookedRooms : MutableList<Form> = mutableListOf()
     var selectedHotel:Int? = null
 
     fun getselectedHotel(): Hotel {
@@ -63,6 +63,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         screen.value= screens
     }
     fun Book(form: Form){
-    BookedRooms+=form
+    bookedRooms+=form
     }
 }

@@ -3,6 +3,7 @@ package com.example.c1t1.data
 import android.os.Build
 import androidx.annotation.RequiresApi
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 
 data class Hotel(
@@ -22,7 +23,10 @@ data class Form(
     val hotel: Hotel,
     val room: Room,
     var isBusiness: Boolean,
-    var payType: Pay
+    var payType: Pay,
+    var adults: Int = 1,
+    var children: Int = 0,
+    var rooms: Int = 1
 ) {
     val totalPrice: Int
         @RequiresApi(Build.VERSION_CODES.O)
@@ -33,4 +37,10 @@ data class Form(
             val fee = if (isBusiness) 150 else 0
             return basePrice + fee
         }
+}
+
+@RequiresApi(Build.VERSION_CODES.O)
+fun LocalDate.formated(): String {
+    val formatter = DateTimeFormatter.ofPattern("MMM dd, yyyy")
+    return this.format(formatter)
 }
